@@ -1,4 +1,4 @@
-from scripts.c_module_preproc import preprocess_c_code, ast_to_code
+from scripts.c_preproc import preprocess_c_code, ast_to_code
 
 C_FILE = './c_files/example.c'
 
