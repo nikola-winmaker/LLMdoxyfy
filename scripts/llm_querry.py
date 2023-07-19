@@ -3,8 +3,7 @@ import certifi
 certifi.where()
 
 # Set your OpenAI API key
-openai.organization = "org-N4gQ5DHrMqQD2GgSmvuyz1by"
-openai.api_key = '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'
+
 
 
 # Define a function to interact with the chat model
