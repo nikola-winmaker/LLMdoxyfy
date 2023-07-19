@@ -38,6 +38,8 @@ struct NotAGoodOne NAGO;
 //How to write memory friendly code
 /*****************************************/
 
+// write doxygen comment for this C function:
+
 int func1(int a, int b, int c, int d) {
     return a+b+c+d;
 }
@@ -53,6 +55,8 @@ int func2(int a, int b, int c, int d, int e, int f) {
 int caller2(void) {
 return func2(1, 2, 3, 4, 5, 6);
 }
+
+
 
 
 /*****************************************/
@@ -102,3 +106,4 @@ int Fcaller1(void) {
     int  local_var = Ffunc1(1, 2);
     return local_var+1;
 }
+
