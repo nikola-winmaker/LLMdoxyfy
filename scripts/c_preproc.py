@@ -2,6 +2,15 @@ from pycparser import parse_file, c_ast, c_parser, c_generator
 import re
 
 class FunctionVisitor(c_ast.NodeVisitor):
+    # This function provides functionality to preprocess C code and extract Doxygen comments from it.
+    # The AST is obtained using the `parse_file` function from the
+    # 'pycoarser' library.
+
+    # The `preprocess_c_code` function takes a file path as input, reads the C code from the file,
+    # and then processes it. It first removes any existing comments from the code and then uses the
+    # `FunctionVisitor` to extract all the function definitions present in the code. Finally, the
+    # modified AST is converted back to C code using the `ast_to_code` function.
+
     def __init__(self):
         self.functions = []
 
@@ -13,10 +22,6 @@ class FunctionVisitor(c_ast.NodeVisitor):
 def preprocess_c_code(file_path):
     # Parse the C code into an AST
     ast = parse_file(file_path, use_cpp=True)
-
-    # Remove comments
-    # comments = ast.ext[-1]
-    # ast.ext = ast.ext[:-1]
 
     # Extract functions
     function_visitor = FunctionVisitor()

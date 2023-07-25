@@ -1,6 +1,46 @@
 /*****************************************/
 //CPU Access to memory.
 /*****************************************/
+#include <stdbool.h>
+#include <limits.h>
+
+int travelingSalesmanProblem(int numCities, int** distances, int* tour) {
+    bool visited[numCities];
+    for (int i = 0; i < numCities; ++i)
+        visited[i] = false;
+
+    tour[0] = 0;
+    visited[0] = true;
+    int currentCity = 0;
+    int totalDistance = 0;
+
+    for (int i = 1; i < numCities; ++i) {
+        int nearestCity = -1;
+        int minDistance = INT_MAX;
+
+        for (int j = 0; j < numCities; ++j) {
+            if (!visited[j] && distances[currentCity][j] < minDistance) {
+                nearestCity = j;
+                minDistance = distances[currentCity][j];
+            }
+        }
+
+        tour[i] = nearestCity;
+        visited[nearestCity] = true;
+        totalDistance += minDistance;
+        currentCity = nearestCity;
+    }
+
+    totalDistance += distances[tour[numCities - 1]][tour[0]]; // Return to starting city
+    return totalDistance;
+}
+
+
+double pythagorean_theorem(double a, double b) {
+    double c_squared = a * a + b * b;
+    double c = sqrt(c_squared);
+    return c;
+}
 
 int wordsize(int a){
     a += 1;
